@@ -75,6 +75,8 @@ public class TransformationRoute extends RouteBuilder {
                 .log("Getting required fields")
                 .setHeader("packageDescription", jsonpath("$.results[0].packaging[0].description"))
                 //TODO: get genericName and labelerName fields
+                .setHeader("genericName", jsonpath("$.results[0].generic_name"))
+                .setHeader("labelerName", jsonpath("$.results[0].labeler_name"))
                 .log("Info obtained packageDescription: ${headers.packageDescription}, labelerName: ${headers.labelerName}, genericName: ${headers.genericName}")
                 .end();
 
